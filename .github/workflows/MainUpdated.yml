@@ -21,11 +21,15 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
 
-    - name: Generate Version
+    - name: Generat
       shell: pwsh
       env:
-        LATEST: ${{ GITHUB_RUN_ATTEMPT }}
+        LATEST: ${{ github.run_attempt }}
       run: echo "Version $LATEST"
+
+    - name: Generate
+      shell: pwsh
+      run: echo "Version ${{ github.run_attempt }}"
 
     - name: Generate Version
       shell: pwsh
