@@ -18,10 +18,11 @@
         <CheckBox Content="Collapse Row"
                   IsChecked="{Binding IsCollapsed}"/>
 
-        <Grid Row="1">
+        <Grid Row="1"
+              components:CollapsibleRow.ElementsCollapsedInCollapsedRows="True">
             <Grid.RowDefinitions>
                 <!-- Min height means this expands if height = 0 -->
-                <components:CollapsibleRow Height="3*" MinHeight="0.000001" />
+                <RowDefinition Height="3*" MinHeight="0.000001" />
                 <components:CollapsibleRow Collapsed="{Binding IsCollapsed}" Height="Auto" />
                 <components:CollapsibleRow Collapsed="{Binding IsCollapsed}" Height="*" />
             </Grid.RowDefinitions>
