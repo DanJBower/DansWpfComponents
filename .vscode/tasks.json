@@ -1,0 +1,64 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build All",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/DansWpfComponents/DansWpfComponents.sln"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Run Demo",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "run",
+                "--project",
+                "${workspaceFolder}/DansWpfComponents/DansWpfComponents.Demo/DansWpfComponents.Demo.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "dependsOn": [
+                "Build All"
+            ]
+        },
+        {
+            "label": "Publish Demo Exe",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "publish",
+                "${workspaceFolder}/DansWpfComponents/DansWpfComponents.Demo/DansWpfComponents.Demo.csproj",
+                "/property:DebugType=None",
+                "/property:DebugSymbols=false",
+                "/property:PublishReadyToRun=true",
+                "/property:PublishSingleFile=true",
+                "/property:PublishReadyToRunShowWarnings=true",
+                "/property:PublishTrimmed=false",
+                "/property:IncludeNativeLibrariesForSelfExtract=true",
+                "-o",
+                ".",
+                "-c",
+                "release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Clean All",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "clean",
+                "${workspaceFolder}/DansWpfComponents/DansWpfComponents.sln"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

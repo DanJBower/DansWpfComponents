@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "davidanson.vscode-markdownlint",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "mhutchie.git-graph",
+        "shardulm94.trailing-spaces",
+        "shd101wyy.markdown-preview-enhanced",
+        "spmeesseman.vscode-taskexplorer",
+        "streetsidesoftware.code-spell-checker",
+        "visualstudioexptteam.vscodeintellicode",
+        "vscode-icons-team.vscode-icons",
+        "waderyan.gitblame",
+        "wayou.vscode-todo-highlight"
+    ]
+}

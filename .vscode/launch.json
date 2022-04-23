@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run DansWpfComponents.Demo",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build All",
+            "program": "${workspaceFolder}/DansWpfComponents/DansWpfComponents.Demo/bin/Debug/net6.0-windows/win-x64/DansWpfComponents.Demo.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/DansWpfComponents/DansWpfComponents.Demo",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ]
+}
