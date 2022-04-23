@@ -24,8 +24,8 @@ jobs:
     - name: Generate Version
       shell: pwsh
       env:
-        LATEST: ${{ steps.get_current_release.outputs.tag_name }}
-      run: echo ${{ GITHUB_RUN_ATTEMPT }}
+        LATEST: ${{ GITHUB_RUN_ATTEMPT }}
+      run: echo "Version $LATEST"
 
     - name: Generate Version
       shell: pwsh
