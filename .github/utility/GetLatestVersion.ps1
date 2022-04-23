@@ -1,4 +1,4 @@
-param([string] $append, [int] $buildId)
+param([string] $append, [string] $buildId)
 
 Push-Location
 
@@ -31,7 +31,8 @@ if ($null -eq $latest) {
 $pipelinePackageVersion = "$($latest)$($append)"
 
 # Max segment is 65000 so get the modulus of buildId
-$build = $buildId % 65000
+$buildIdInt = [int]$buildId
+$build = $buildIdInt % 65000
 
 $splitVersion = $latest.Split(".")
 $major = $splitVersion[0]
