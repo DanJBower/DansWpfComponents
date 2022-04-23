@@ -15,10 +15,12 @@ jobs:
 
     - name: Get Latest Release
       id: latest_release
-      uses: pozetroninc/github-action-get-latest-release@v0.5.0
+      uses: joutvhu/get-release@v1.0.1
       with:
-        repository: ${{ github.repository }}
-        excludes: draft
+        latest: true
+        prerelease: true
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
 
     - name: Generat
       shell: pwsh
@@ -30,7 +32,7 @@ jobs:
 
     - name: Generate Version
       shell: pwsh
-      run: echo "Version ${{ steps.latest_release.outputs.release }}"
+      run: echo "Version ${{ steps.latest_release.outputs.tag_name }}"
 
     - name: Generate Version
       shell: pwsh
