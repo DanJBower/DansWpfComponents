@@ -24,7 +24,7 @@ jobs:
     - name: Generate Version
       shell: pwsh
       env:
-        LATEST: ${{ steps.latest_release_info.outputs.tag_name }}
+        LATEST: ${{ steps.get_current_release.outputs.tag_name }}
       run: echo "Version $LATEST"
 
     - name: Generate Version
