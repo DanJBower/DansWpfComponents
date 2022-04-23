@@ -11,6 +11,11 @@ jobs:
     name: Generating Version of NuGet
     runs-on: windows-latest
     steps:
+    - uses: actions/checkout@v3
+
+    - name: Generate Version
+      shell: pwsh
+      run: echo "Test"
 
 #  BuildNuGet:
 #    name: Build NuGet
