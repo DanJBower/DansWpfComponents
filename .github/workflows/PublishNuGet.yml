@@ -23,8 +23,9 @@ jobs:
 
     - name: Upload NuGet artifact
       uses: actions/upload-artifact@v3.0.0
-        with:
-          path: **\DansWpfComponents*nupkg
+      with:
+        path: \**\DansWpfComponents*nupkg
+        if-no-files-found: error
 
 
 #  PublishNuGetToPrivateFeed:
