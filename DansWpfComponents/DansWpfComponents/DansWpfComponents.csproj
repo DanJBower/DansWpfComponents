@@ -1,8 +1,42 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<PackageId>DansWpfComponents</PackageId>
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<UseWPF>true</UseWPF>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Description>A collection of WPF Components.</Description>
+		<PackageProjectUrl>https://github.com/DanJBower/DansWpfComponents</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/DanJBower/DansWpfComponents</RepositoryUrl>
+		<RepositoryType>Git</RepositoryType>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<Authors>DanJBower</Authors>
+		<AssemblyVersion Condition=" '$(pipelineAssemblyVersion)' != '' ">$(pipelineAssemblyVersion)</AssemblyVersion>
+		<FileVersion Condition=" '$(pipelineAssemblyVersion)' != '' ">$(pipelineAssemblyVersion)</FileVersion>
+		<Version Condition=" '$(pipelinePackageVersion)' != '' ">$(pipelinePackageVersion)</Version>
+		<AssemblyVersion Condition=" '$(pipelineAssemblyVersion)' == '' ">1.0.0.0</AssemblyVersion>
+		<FileVersion Condition=" '$(pipelineAssemblyVersion)' == '' ">1.0.0.0</FileVersion>
+		<Version Condition=" '$(pipelinePackageVersion)' == '' ">1.0.0</Version>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<WarningLevel>9999</WarningLevel>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\LICENSE" Pack="true" PackagePath="\"/>
+		<None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
 
 </Project>
