@@ -19,7 +19,13 @@ jobs:
         latest: true
         prerelease: true
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ github.token }}
+
+    - name: Generate Version
+      shell: pwsh
+      env:
+        LATEST: ${{ steps.get_current_release.outputs.tag_name }}
+      run: echo ${{ GITHUB_RUN_ATTEMPT }}
 
     - name: Generate Version
       shell: pwsh
