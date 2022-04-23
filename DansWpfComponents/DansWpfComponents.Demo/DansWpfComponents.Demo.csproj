@@ -16,4 +16,8 @@
 		<ProjectReference Include="..\DansWpfComponents\DansWpfComponents.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
+	</ItemGroup>
+
 </Project>
