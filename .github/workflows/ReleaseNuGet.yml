@@ -5,6 +5,10 @@ on:
     types: [published]
 
 jobs:
+  WillDoThisLater:
+    name: Will Do This Later
+    runs-on: windows-latest
+    steps:
     - name: TODO
       shell: pwsh
       run: echo "Will come back to this"
