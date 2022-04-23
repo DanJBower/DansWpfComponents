@@ -15,7 +15,7 @@ jobs:
 
     - name: Generate Version
       shell: pwsh
-      run: .github\utility\GetLatestVersion.ps1 -append '-ci-$(GITHUB_RUN_NUMBER)' -buildId '$(GITHUB_RUN_ID)'
+      run: .github\utility\GetLatestVersion.ps1 -append '-ci-$(GITHUB_RUN_ATTEMPT)' -buildId '$(GITHUB_RUN_NUMBER)'
 
 #  BuildNuGet:
 #    name: Build NuGet

@@ -1,5 +1,8 @@
 param([string] $append, [string] $buildId)
 
+Write-Host $append
+Write-Host $buildId
+
 Push-Location
 
 Set-Location "$($PSScriptRoot)"
@@ -16,6 +19,7 @@ foreach ($tag in $tags) {
 $logs = $logs | Sort-Object -Descending
 
 foreach ($log in $logs) {
+    Write-Host $log
     $log = $log.Split(" ")[3]
 
     if ("$($log)" -match '^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$') {
