@@ -1,4 +1,4 @@
-param([string] $append, [string] $buildId)
+param([string] $append, [int] $buildId)
 
 Write-Host "Append: $($append)"
 Write-Host "Build ID: $($buildId)"
@@ -35,8 +35,7 @@ if ($null -eq $latest) {
 $pipelinePackageVersion = "$($latest)$($append)"
 
 # Max segment is 65000 so get the modulus of buildId
-$buildIdInt = [int]$buildId
-$build = $buildIdInt % 65000
+$build = $buildId % 65000
 
 $splitVersion = $latest.Split(".")
 $major = $splitVersion[0]

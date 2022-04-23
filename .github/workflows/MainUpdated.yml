@@ -23,23 +23,19 @@ jobs:
 
     - name: Generat
       shell: pwsh
-      env:
-        LATEST: ${{ github.run_attempt }}
-      run: echo "Version $LATEST"
+      run: echo "-append '-ci-${{ github.run_id }}' -buildId '${{ github.run_number }}'"
 
     - name: Generate
       shell: pwsh
-      run: echo "Version ${{ github.run_attempt }}"
+      run: echo "RA ${{ github.run_attempt }}"
 
     - name: Generate Version
       shell: pwsh
-      env:
-        LATEST: ${{ steps.get_current_release.outputs.tag_name }}
-      run: echo "Version $LATEST"
+      run: echo "Version ${{ steps.get_current_release.outputs.tag_name }}"
 
     - name: Generate Version
       shell: pwsh
-      run: .github\utility\GetLatestVersion.ps1 -append '-ci-$(GITHUB_RUN_ATTEMPT)' -buildId '$(GITHUB_RUN_NUMBER)'
+      run: .github\utility\GetLatestVersion.ps1 -append '-ci-${{ github.run_id }}' -buildId '${{ github.run_number }}'
 
 #  BuildNuGet:
 #    name: Build NuGet
