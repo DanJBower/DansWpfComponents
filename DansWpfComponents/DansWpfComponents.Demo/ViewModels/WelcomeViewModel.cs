@@ -2,5 +2,5 @@
 
 public partial class WelcomeViewModel : DemoViewModel
 {
-
+    public WelcomeViewModel() : base("Welcome") { }
 }

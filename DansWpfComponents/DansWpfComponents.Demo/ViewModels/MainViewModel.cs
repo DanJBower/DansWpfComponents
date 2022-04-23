@@ -14,7 +14,7 @@ public partial class MainViewModel
 
     public MainViewModel()
     {
-        WelcomeViewModel welcome = new();
+        CollapsibleRowDemoViewModel welcome = new();
 
         Demos.Add(welcome);
         CurrentDemo = welcome;

@@ -18,6 +18,10 @@
                 <DataTemplate DataType="{x:Type viewModels:WelcomeViewModel}">
                     <views:WelcomeView />
                 </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:CollapsibleRowDemoViewModel}">
+                    <views:CollapsibleRowDemoView />
+                </DataTemplate>
             </ContentPresenter.Resources>
         </ContentPresenter>
     </Grid>
