@@ -7,28 +7,33 @@ on:
     branches: [ main ]
 
 jobs:
-  BuildNuGet:
-    name: Build NuGet
+  TestVersionGeneration:
+    name: Generating Version of NuGet
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 6.0.x
+#  BuildNuGet:
+#    name: Build NuGet
+#    runs-on: windows-latest
+#    steps:
+#    - uses: actions/checkout@v3
 
-    - name: Build
-      run: dotnet build --configuration Release DansWpfComponents\DansWpfComponents\DansWpfComponents.csproj
+#    - name: Setup .NET
+#      uses: actions/setup-dotnet@v2
+#      with:
+#        dotnet-version: 6.0.x
 
-    - name: Upload NuGet artifact
-      uses: actions/upload-artifact@v3.0.0
-      with:
-        name: NuGet Package Files
-        path: |
-          DansWpfComponents\DansWpfComponents\bin\Release\DansWpfComponents.*.nupkg
-          DansWpfComponents\DansWpfComponents\bin\Release\DansWpfComponents.*.snupkg
-        if-no-files-found: error
+#    - name: Build
+#      run: dotnet build --configuration Release DansWpfComponents\DansWpfComponents\DansWpfComponents.csproj
+
+#    - name: Upload NuGet artifact
+#      uses: actions/upload-artifact@v3.0.0
+#      with:
+#        name: NuGet Package Files
+#        path: |
+#          DansWpfComponents\DansWpfComponents\bin\Release\DansWpfComponents.*.nupkg
+#          DansWpfComponents\DansWpfComponents\bin\Release\DansWpfComponents.*.snupkg
+#        if-no-files-found: error
 
 
 #  PublishNuGetToPrivateFeed:
