@@ -1,4 +1,4 @@
-name: .NET
+name: Main Branch Updated
 
 on:
   push:
@@ -24,7 +24,10 @@ jobs:
     - name: Upload NuGet artifact
       uses: actions/upload-artifact@v3.0.0
       with:
-        path: DansWpfComponents\DansWpfComponents\**\DansWpfComponents*nupkg
+        name: NuGet Package Files
+        path: |
+          DansWpfComponents\DansWpfComponents\bin\Release\DansWpfComponents.*.nupkg
+          DansWpfComponents\DansWpfComponents\bin\Release\DansWpfComponents.*.snupkg
         if-no-files-found: error
 
 

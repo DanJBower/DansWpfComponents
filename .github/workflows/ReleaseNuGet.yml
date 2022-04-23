@@ -1,0 +1,8 @@
+name: Release Dan's WPF Components
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  # TODO
