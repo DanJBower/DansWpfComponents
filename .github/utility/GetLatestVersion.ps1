@@ -1,7 +1,7 @@
 param([string] $append, [string] $buildId)
 
-Write-Host $append
-Write-Host $buildId
+Write-Host "Append: $($append)"
+Write-Host "Build ID: $($buildId)"
 
 Push-Location
 

@@ -13,6 +13,17 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Get Latest Release
+      uses: cardinalby/git-get-release-action@1.2.2
+      with:
+        latest: true
+
+    - name: Generate Version
+      shell: pwsh
+      env:
+        LATEST: ${{ steps.getByTag.outputs.tag_name }}
+      run: echo "Version $LATEST"
+
     - name: Generate Version
       shell: pwsh
       run: .github\utility\GetLatestVersion.ps1 -append '-ci-$(GITHUB_RUN_ATTEMPT)' -buildId '$(GITHUB_RUN_NUMBER)'
