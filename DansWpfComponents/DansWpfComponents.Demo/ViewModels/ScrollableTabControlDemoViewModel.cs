@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using DansWpfComponents.Components;
 using DansWpfComponents.Enums;
+using System.Windows.Controls;
+using ScrollBarVisibility = DansWpfComponents.Enums.ScrollBarVisibility;
 
 namespace DansWpfComponents.Demo.ViewModels;
 
@@ -9,13 +11,14 @@ public partial class ScrollableTabControlDemoViewModel : DemoViewModel
     public ScrollableTabControlDemoViewModel() : base($"{nameof(ScrollableTabControl)} Demo") { }
 
     [ObservableProperty]
-    private TabLayout _tabLayout;
+    private TabLayout _tabLayout = TabLayout.Scroll;
 
     [ObservableProperty]
-    private ScrollBarVisibility _scrollBarVisibility;
+    private ScrollBarVisibility _scrollBarVisibility = ScrollBarVisibility.Visible;
 
     [ObservableProperty]
-    private ScrollBarPositions _scrollBarPosition;
+    private ScrollBarPosition _scrollBarPosition = ScrollBarPosition.Normal;
+
+    [ObservableProperty]
+    private Dock _tabStripPlacement = Dock.Left;
 }
-
-// Note to self, this is the going to be the application one, so when you make changes in here, it will update the main application. Much wow 🙂

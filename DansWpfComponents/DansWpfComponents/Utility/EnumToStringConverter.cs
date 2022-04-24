@@ -4,23 +4,20 @@ using System.Windows.Data;
 
 namespace DansWpfComponents.Utility;
 
-public class BoolInverterConverter : BaseConverter, IValueConverter
+public class EnumToStringConverter : BaseConverter, IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if (value is bool boolToConvert)
+        if (value is Enum enumValue)
         {
-            return !boolToConvert;
+            return enumValue.GetDescription();
         }
-        return false;
+
+        return "";
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if (value is bool boolToConvert)
-        {
-            return !boolToConvert;
-        }
-        return false;
+        throw new NotSupportedException();
     }
 }

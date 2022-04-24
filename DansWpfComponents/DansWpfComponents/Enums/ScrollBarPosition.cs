@@ -1,6 +1,6 @@
 ﻿namespace DansWpfComponents.Enums;
 
-public enum ScrollBarPositions
+public enum ScrollBarPosition
 {
     Normal,
     Outside,

@@ -12,12 +12,18 @@ public partial class MainViewModel
     [ObservableProperty]
     private DemoViewModel _currentDemo;
 
+    [ObservableProperty]
+    private ScrollableTabControlDemoViewModel _scrollableTabControlDemoViewModel;
+
     public MainViewModel()
     {
         WelcomeViewModel welcome = new();
 
+        ScrollableTabControlDemoViewModel = new();
+
         Demos.Add(welcome);
         Demos.Add(new CollapsibleRowDemoViewModel());
+        Demos.Add(ScrollableTabControlDemoViewModel);
 
         CurrentDemo = welcome;
     }

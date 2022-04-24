@@ -3,13 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:DansWpfComponents.Demo.Views"
              xmlns:viewModels="clr-namespace:DansWpfComponents.Demo.ViewModels"
+             xmlns:utility="clr-namespace:DansWpfComponents.Utility;assembly=DansWpfComponents"
+             xmlns:enums="clr-namespace:DansWpfComponents.Enums;assembly=DansWpfComponents"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800"
              d:DataContext="{d:DesignInstance Type=viewModels:ScrollableTabControlDemoViewModel, IsDesignTimeCreatable=True}">
     <Grid>
+        <StackPanel>
+            <ComboBox SelectedValue="{Binding TabLayout}"
+                      ItemsSource="{utility:EnumToCollectionConverter {x:Type enums:TabLayout}}"
+                      DisplayMemberPath="Description"
+                      SelectedValuePath="Value" />
 
+            <ComboBox SelectedValue="{Binding ScrollBarVisibility}"
+                      ItemsSource="{utility:EnumToCollectionConverter {x:Type enums:ScrollBarVisibility}}"
+                      DisplayMemberPath="Description"
+                      SelectedValuePath="Value" />
+
+            <ComboBox SelectedValue="{Binding ScrollBarPosition}"
+                      ItemsSource="{utility:EnumToCollectionConverter {x:Type enums:ScrollBarPosition}}"
+                      DisplayMemberPath="Description"
+                      SelectedValuePath="Value" />
+
+            <ComboBox SelectedValue="{Binding TabStripPlacement}"
+                      ItemsSource="{utility:EnumToCollectionConverter {x:Type Dock}}"
+                      DisplayMemberPath="Description"
+                      SelectedValuePath="Value" />
+        </StackPanel>
     </Grid>
 </UserControl>

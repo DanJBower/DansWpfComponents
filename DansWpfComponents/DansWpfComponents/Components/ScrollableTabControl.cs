@@ -29,9 +29,9 @@ public class ScrollableTabControl : TabControl
     public static readonly DependencyProperty ScrollBarPositionProperty =
         DependencyProperty.Register(
             "ScrollBarPosition",
-            typeof(ScrollBarPositions),
+            typeof(ScrollBarPosition),
             typeof(ScrollableTabControl),
-            new PropertyMetadata(ScrollBarPositions.Outside));
+            new PropertyMetadata(Enums.ScrollBarPosition.Outside));
 
     public TabLayout TabLayout
     {
@@ -45,9 +45,9 @@ public class ScrollableTabControl : TabControl
         set => SetValue(ScrollBarVisibilityProperty, value);
     }
 
-    public ScrollBarPositions ScrollBarPosition
+    public ScrollBarPosition ScrollBarPosition
     {
-        get => (ScrollBarPositions)GetValue(ScrollBarPositionProperty);
+        get => (ScrollBarPosition)GetValue(ScrollBarPositionProperty);
         set => SetValue(ScrollBarPositionProperty, value);
     }
 }

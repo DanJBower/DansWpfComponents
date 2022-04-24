@@ -5,7 +5,7 @@ using System.Windows.Data;
 
 namespace DansWpfComponents.Utility;
 
-public class BoolVisibilityConverter : IMultiValueConverter
+public class BoolVisibilityConverter : BaseConverter, IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {

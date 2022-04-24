@@ -15,23 +15,13 @@
     </Window.DataContext>
 
     <Grid>
-        <!--<ContentPresenter Content="{Binding Path=CurrentDemo}">
-            <ContentPresenter.Resources>
-                <DataTemplate DataType="{x:Type viewModels:WelcomeViewModel}">
-                    <views:WelcomeView />
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type viewModels:CollapsibleRowDemoViewModel}">
-                    <views:CollapsibleRowDemoView />
-                </DataTemplate>
-            </ContentPresenter.Resources>
-        </ContentPresenter>-->
-
-        <components:ScrollableTabControl TabStripPlacement="Left"
+        <components:ScrollableTabControl TabStripPlacement="{Binding ScrollableTabControlDemoViewModel.TabStripPlacement}"
                                          Margin="5"
                                          ItemsSource="{Binding Demos}"
                                          SelectedItem="{Binding CurrentDemo}"
-                                         ScrollBarVisibility="Visible">
+                                         ScrollBarVisibility="{Binding ScrollableTabControlDemoViewModel.ScrollBarVisibility}"
+                                         TabLayout="{Binding ScrollableTabControlDemoViewModel.TabLayout}"
+                                         ScrollBarPosition="{Binding ScrollableTabControlDemoViewModel.ScrollBarPosition}">
             <TabControl.Resources>
                 <DataTemplate DataType="{x:Type viewModels:WelcomeViewModel}">
                     <views:WelcomeView />
@@ -39,6 +29,10 @@
 
                 <DataTemplate DataType="{x:Type viewModels:CollapsibleRowDemoViewModel}">
                     <views:CollapsibleRowDemoView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:ScrollableTabControlDemoViewModel}">
+                    <views:ScrollableTabControlDemoView />
                 </DataTemplate>
             </TabControl.Resources>
 
