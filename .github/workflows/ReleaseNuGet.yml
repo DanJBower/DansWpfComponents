@@ -45,38 +45,38 @@ jobs:
           DansWpfComponents\DansWpfComponents\bin\Release\DansWpfComponents.*.snupkg
         if-no-files-found: error
 
-#  ReleaseNuGetToPrivateFeed:
-#    name: Release NuGet To Private Feed
-#    needs: BuildNuGet
-#    runs-on: ubuntu-latest
-#    steps:
-#    - name: Download NuGet artifact
-#      uses: actions/download-artifact@v3.0.0
-#      with:
-#        name: NuGet Package Files
+  ReleaseNuGetToPrivateFeed:
+    name: Release NuGet To Private Feed
+    needs: BuildNuGet
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download NuGet artifact
+      uses: actions/download-artifact@v3.0.0
+      with:
+        name: NuGet Package Files
 
-#    - name: Setup .NET
-#      uses: actions/setup-dotnet@v2
-#      with:
-#        dotnet-version: 6.0.x
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
 
-#    - name: Release NuGet
-#      run: dotnet nuget push *.nupkg --source https://nuget.pkg.github.com/DanJBower/index.json --api-key ${{ github.token }}
+    - name: Release NuGet
+      run: dotnet nuget push *.nupkg --source https://nuget.pkg.github.com/DanJBower/index.json --api-key ${{ github.token }}
 
-#  ReleaseNuGetToActualFeed:
-#    name: Release NuGet To Actual Feed
-#    needs: BuildNuGet
-#    runs-on: ubuntu-latest
-#    steps:
-#    - name: Download NuGet artifact
-#      uses: actions/download-artifact@v3.0.0
-#      with:
-#        name: NuGet Package Files
+  ReleaseNuGetToActualFeed:
+    name: Release NuGet To Actual Feed
+    needs: BuildNuGet
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download NuGet artifact
+      uses: actions/download-artifact@v3.0.0
+      with:
+        name: NuGet Package Files
 
-#    - name: Setup .NET
-#      uses: actions/setup-dotnet@v2
-#      with:
-#        dotnet-version: 6.0.x
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
 
-#    - name: Release NuGet
-#      run: dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+    - name: Release NuGet
+      run: dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
