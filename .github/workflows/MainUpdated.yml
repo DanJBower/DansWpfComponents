@@ -3,8 +3,12 @@ name: Main Branch Updated
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'DansWpfComponents\DansWpfComponents\**'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'DansWpfComponents\DansWpfComponents\**'
 
 jobs:
   BuildNuGet:
