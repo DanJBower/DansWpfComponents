@@ -9,7 +9,7 @@ on:
 jobs:
   CallBuildNuGet:
     name: Call Build NuGet
-    uses: ./.github/ReuseableWorkflowParts/BuildNuGet.yml
+    uses: .github\ReuseableWorkflowParts\BuildNuGet.yml@main
 
 
 #  PublishNuGetToPrivateFeed:
