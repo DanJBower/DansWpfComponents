@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="FlippableScrollViewerStyle.xaml" />
-        <ResourceDictionary Source="ScrollableTabControlStyle.xaml" />
+        <ResourceDictionary Source="/DansWpfComponents;component/Themes/FlippableScrollViewerStyle.xaml" />
+        <ResourceDictionary Source="/DansWpfComponents;component/Themes/ScrollableTabControlStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
