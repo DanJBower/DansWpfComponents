@@ -35,8 +35,13 @@ jobs:
       run: echo "Version ${{ steps.latest_release.outputs.tag_name }}"
 
     - name: Generate Version
+      id: make_version
       shell: pwsh
       run: .github\utility\MakeVersionNumber.ps1 -append '-ci-${{ github.run_id }}' -buildId '${{ github.run_number }}' -latest '${{ steps.latest_release.outputs.tag_name }}'
+
+    - name: Check Version
+      shell: pwsh
+      run: echo "Version ${{ steps.make_version.outputs.pipelinePackageVersion }} and ${{ steps.make_version.outputs.pipelineAssemblyVersion }}"
 
 #  BuildNuGet:
 #    name: Build NuGet
