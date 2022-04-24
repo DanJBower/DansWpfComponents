@@ -36,7 +36,7 @@ jobs:
       run: dotnet build --configuration Release DansWpfComponents\DansWpfComponents\DansWpfComponents.csproj
       env:
         pipelinePackageVersion: ${{ steps.make_version.outputs.pipelinePackageVersion }}
-        pipelineAssemblyVersion: ${{ steps.make_version.outputs.pipelineAssemblyVersion }}"
+        pipelineAssemblyVersion: ${{ steps.make_version.outputs.pipelineAssemblyVersion }}
 
     - name: Upload NuGet artifact
       uses: actions/upload-artifact@v3.0.0
