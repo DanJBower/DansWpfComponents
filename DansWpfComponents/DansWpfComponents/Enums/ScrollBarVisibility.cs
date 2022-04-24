@@ -4,5 +4,5 @@ public enum ScrollBarVisibility
 {
     Hidden,
     Visible,
-    VisibleOnHorizontal
+    VisibleOnHorizontal,
 }

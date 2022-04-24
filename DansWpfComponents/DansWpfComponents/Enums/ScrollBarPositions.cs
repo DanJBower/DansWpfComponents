@@ -3,5 +3,5 @@
 public enum ScrollBarPositions
 {
     Normal,
-    Outside
+    Outside,
 }

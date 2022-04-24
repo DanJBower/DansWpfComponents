@@ -1,0 +1,3 @@
+﻿namespace DansWpfComponents.Utility;
+
+public delegate void MouseHorizontalWheelEventHandler(object sender, MouseHorizontalWheelEventArgs mouseHorizontalWheelEventArgs);
