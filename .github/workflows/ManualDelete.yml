@@ -1,4 +1,4 @@
-name: Main Branch Updated
+name: Delete Old CI Builds
 
 on:
   workflow_dispatch:
@@ -6,7 +6,6 @@ on:
 jobs:
   DeleteOldCiBuilds:
     name: Delete old CI releases
-    needs: ReleaseNuGetToPrivateFeed
     runs-on: ubuntu-latest
     steps:
     - name: Delete Package Versions
