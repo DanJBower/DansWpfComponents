@@ -1,0 +1,17 @@
+name: Reuseable Release NuGet To Private Feed
+
+on:
+  workflow_call:
+
+jobs:
+  ReleaseNuGetToPrivateFeed:
+    name: Release NuGet To Private Feed
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download NuGet artifact
+      uses: actions/download-artifact@v3.0.0
+      with:
+        name: NuGet Package Files
+
+    - name: Display structure of downloaded files
+      run: ls -R

@@ -11,13 +11,6 @@ jobs:
     name: Call Build NuGet
     uses: ./.github/workflows/BuildNuGet.yml
 
-
-#  PublishNuGetToPrivateFeed:
-#    name: Publish NuGet
-#    runs-on: windows-latest
-#    needs: BuildNuGet
-#    steps:
-#    - name: Download NuGet artifact
-#      uses: actions/download-artifact@v3.0.0
-
-
+  CallReleaseNuGetToPrivateFeed:
+    name: Release NuGet To Private Feed
+    uses: ./.github/workflows/ReleaseNuGetToPrivateFeed.yml
