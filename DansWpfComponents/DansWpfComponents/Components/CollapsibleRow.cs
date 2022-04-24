@@ -9,6 +9,7 @@ namespace DansWpfComponents.Components;
 
 public class CollapsibleRow : RowDefinition
 {
+    // Test
     public static readonly DependencyProperty CollapsedProperty;
 
     public bool Collapsed
