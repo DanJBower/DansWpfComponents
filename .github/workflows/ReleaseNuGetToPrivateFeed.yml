@@ -18,8 +18,5 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
-    - name: Add Package Feed
-      run: dotnet nuget add source --name github "https://nuget.pkg.github.com/DanJBower/index.json"
-
     - name: Release NuGet
-      run: dotnet nuget push *.nupkg --source "github" --api-key ${{ github.token }}
+      run: dotnet nuget push *.nupkg --source https://nuget.pkg.github.com/DanJBower/index.json --api-key ${{ github.token }}
