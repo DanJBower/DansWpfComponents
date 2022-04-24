@@ -4,11 +4,11 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'DansWpfComponents\DansWpfComponents\**'
+      - 'DansWpfComponents/DansWpfComponents/**'
   pull_request:
     branches: [ main ]
     paths:
-      - 'DansWpfComponents\DansWpfComponents\**'
+      - 'DansWpfComponents/DansWpfComponents/**'
 
 jobs:
   BuildNuGet:
