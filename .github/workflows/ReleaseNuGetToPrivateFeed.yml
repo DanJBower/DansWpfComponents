@@ -13,5 +13,13 @@ jobs:
       with:
         name: NuGet Package Files
 
-    - name: Display structure of downloaded files
-      run: ls -R
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Authenticate NuGet
+      run: dotnet nuget add source --username DanJBower --password ${{ github.token }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/DanJBower/index.json"
+
+    - name: Release NuGet
+      run: dotnet nuget push *.nupkg --source "github"
