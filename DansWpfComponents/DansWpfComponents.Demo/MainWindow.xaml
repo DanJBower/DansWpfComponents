@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:DansWpfComponents.Demo.Views"
         xmlns:viewModels="clr-namespace:DansWpfComponents.Demo.ViewModels"
+        xmlns:components="clr-namespace:DansWpfComponents.Components;assembly=DansWpfComponents"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="450"
@@ -12,8 +13,9 @@
     <Window.DataContext>
         <viewModels:MainViewModel />
     </Window.DataContext>
+
     <Grid>
-        <ContentPresenter Content="{Binding Path=CurrentDemo}">
+        <!--<ContentPresenter Content="{Binding Path=CurrentDemo}">
             <ContentPresenter.Resources>
                 <DataTemplate DataType="{x:Type viewModels:WelcomeViewModel}">
                     <views:WelcomeView />
@@ -23,6 +25,28 @@
                     <views:CollapsibleRowDemoView />
                 </DataTemplate>
             </ContentPresenter.Resources>
-        </ContentPresenter>
+        </ContentPresenter>-->
+
+        <components:ScrollableTabControl TabStripPlacement="Left"
+                                         Margin="5"
+                                         ItemsSource="{Binding Demos}"
+                                         SelectedItem="{Binding CurrentDemo}"
+                                         ScrollBarVisibility="Visible">
+            <TabControl.Resources>
+                <DataTemplate DataType="{x:Type viewModels:WelcomeViewModel}">
+                    <views:WelcomeView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:CollapsibleRowDemoViewModel}">
+                    <views:CollapsibleRowDemoView />
+                </DataTemplate>
+            </TabControl.Resources>
+
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+        </components:ScrollableTabControl>
     </Grid>
 </Window>

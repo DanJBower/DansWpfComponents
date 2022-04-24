@@ -1,0 +1,111 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:components="clr-namespace:DansWpfComponents.Components">
+    <Style TargetType="{x:Type components:FlippableScrollViewer}">
+        <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type components:FlippableScrollViewer}">
+                    <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="col1" Width="*"/>
+                            <ColumnDefinition x:Name="col2" Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition x:Name="row1" Height="*"/>
+                            <RowDefinition x:Name="row2" Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Rectangle x:Name="Corner"
+                                       Grid.Column="1"
+                                       Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+                                       Grid.Row="1"/>
+
+                        <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+                                                    CanContentScroll="{TemplateBinding CanContentScroll}"
+                                                    CanHorizontallyScroll="False"
+                                                    CanVerticallyScroll="False"
+                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                    Content="{TemplateBinding Content}"
+                                                    Grid.Column="0"
+                                                    Margin="{TemplateBinding Padding}"
+                                                    Grid.Row="0"/>
+
+                        <ScrollBar x:Name="PART_VerticalScrollBar"
+                                       AutomationProperties.AutomationId="VerticalScrollBar"
+                                       Cursor="Arrow"
+                                       Grid.Column="1"
+                                       Maximum="{TemplateBinding ScrollableHeight}"
+                                       Minimum="0"
+                                       Grid.Row="0"
+                                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                       Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                       ViewportSize="{TemplateBinding ViewportHeight}"/>
+
+                        <ScrollBar x:Name="PART_HorizontalScrollBar"
+                                       AutomationProperties.AutomationId="HorizontalScrollBar"
+                                       Cursor="Arrow"
+                                       Grid.Column="0"
+                                       Maximum="{TemplateBinding ScrollableWidth}"
+                                       Minimum="0"
+                                       Orientation="Horizontal"
+                                       Grid.Row="1"
+                                       Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                                       Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                       ViewportSize="{TemplateBinding ViewportWidth}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HorizontalScrollBarPosition" Value="Top">
+                            <Setter TargetName="PART_HorizontalScrollBar" Property="Grid.Row" Value="0"/>
+                            <Setter TargetName="PART_ScrollContentPresenter" Property="Grid.Row" Value="1"/>
+                            <Setter TargetName="PART_VerticalScrollBar" Property="Grid.Row" Value="1"/>
+                            <Setter TargetName="row1" Property="Height" Value="Auto"/>
+                            <Setter TargetName="row2" Property="Height" Value="*"/>
+                        </Trigger>
+
+                        <Trigger Property="VerticalScrollBarPosition" Value="Left">
+                            <Setter TargetName="PART_VerticalScrollBar" Property="Grid.Column" Value="0"/>
+                            <Setter TargetName="PART_ScrollContentPresenter" Property="Grid.Column" Value="1"/>
+                            <Setter TargetName="PART_HorizontalScrollBar" Property="Grid.Column" Value="1"/>
+                            <Setter TargetName="col1" Property="Width" Value="Auto"/>
+                            <Setter TargetName="col2" Property="Width" Value="*"/>
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="HorizontalScrollBarPosition" Value="Top"/>
+                                <Condition Property="VerticalScrollBarPosition" Value="Right"/>
+                            </MultiTrigger.Conditions>
+
+                            <Setter TargetName="Corner" Property="Grid.Column" Value="1"/>
+                            <Setter TargetName="Corner" Property="Grid.Row" Value="0"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="HorizontalScrollBarPosition" Value="Bottom"/>
+                                <Condition Property="VerticalScrollBarPosition" Value="Left"/>
+                            </MultiTrigger.Conditions>
+
+                            <Setter TargetName="Corner" Property="Grid.Column" Value="0"/>
+                            <Setter TargetName="Corner" Property="Grid.Row" Value="1"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="HorizontalScrollBarPosition" Value="Top"/>
+                                <Condition Property="VerticalScrollBarPosition" Value="Left"/>
+                            </MultiTrigger.Conditions>
+
+                            <Setter TargetName="Corner" Property="Grid.Column" Value="0"/>
+                            <Setter TargetName="Corner" Property="Grid.Row" Value="0"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,232 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:components="clr-namespace:DansWpfComponents.Components">
+    <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#ACACAC"/>
+
+    <Style TargetType="{x:Type components:ScrollableTabControl}">
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="{StaticResource TabItem.Selected.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TabItem.Selected.Border}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type components:ScrollableTabControl}">
+                    <Grid x:Name="templateRoot"
+                          ClipToBounds="true"
+                          SnapsToDevicePixels="true"
+                          KeyboardNavigation.TabNavigation="Local"
+                          UseLayoutRounding="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="ColumnDefinition0"/>
+                            <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition x:Name="RowDefinition0" Height="Auto"/>
+                            <RowDefinition x:Name="RowDefinition1" Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <components:FlippableScrollViewer VerticalScrollBarVisibility="Disabled"
+                                                                    HorizontalScrollBarVisibility="Disabled"
+                                                                    Grid.Column="0"
+                                                                    Grid.Row="0"
+                                                                    Background="Transparent"
+                                                                    Panel.ZIndex="1"
+                                                                    Margin="0, 0, 0, -1.25"
+                                                                    x:Name="headerPanelHolder">
+                            <TabPanel Background="Transparent"
+                                      IsItemsHost="true"
+                                      Margin="2,2,2,1.25"
+                                      x:Name="headerPanel"
+                                      KeyboardNavigation.TabIndex="1"/>
+                        </components:FlippableScrollViewer>
+
+                        <Border x:Name="contentPanel"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                Grid.Column="0"
+                                KeyboardNavigation.DirectionalNavigation="Contained"
+                                Grid.Row="1"
+                                KeyboardNavigation.TabIndex="2"
+                                KeyboardNavigation.TabNavigation="Local">
+                            <ContentPresenter x:Name="PART_SelectedContentHost"
+                                              ContentSource="SelectedContent"
+                                              Margin="{TemplateBinding Padding}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="TabStripPlacement" Value="Bottom">
+                            <Setter Property="Grid.Row" TargetName="headerPanelHolder" Value="1"/>
+                            <Setter Property="Grid.Row" TargetName="contentPanel" Value="0"/>
+                            <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                            <Setter Property="Height" TargetName="RowDefinition1" Value="Auto"/>
+                            <Setter Property="Margin" TargetName="headerPanelHolder" Value="0, -1.25, 0, 0"/>
+                            <Setter Property="Margin" TargetName="headerPanel" Value="2,1.25,2,2"/>
+                        </Trigger>
+
+                        <Trigger Property="TabStripPlacement" Value="Left">
+                            <Setter Property="Grid.Row" TargetName="headerPanelHolder" Value="0"/>
+                            <Setter Property="Grid.Row" TargetName="contentPanel" Value="0"/>
+                            <Setter Property="Grid.Column" TargetName="headerPanelHolder" Value="0"/>
+                            <Setter Property="Grid.Column" TargetName="contentPanel" Value="1"/>
+                            <Setter Property="Width" TargetName="ColumnDefinition0" Value="Auto"/>
+                            <Setter Property="Width" TargetName="ColumnDefinition1" Value="*"/>
+                            <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                            <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
+                            <Setter Property="Margin" TargetName="headerPanelHolder" Value="0, 0, -1.25, 0"/>
+                            <Setter Property="Margin" TargetName="headerPanel" Value="2,2,1.25,2"/>
+                        </Trigger>
+
+                        <Trigger Property="TabStripPlacement" Value="Right">
+                            <Setter Property="Grid.Row" TargetName="headerPanelHolder" Value="0"/>
+                            <Setter Property="Grid.Row" TargetName="contentPanel" Value="0"/>
+                            <Setter Property="Grid.Column" TargetName="headerPanelHolder" Value="1"/>
+                            <Setter Property="Grid.Column" TargetName="contentPanel" Value="0"/>
+                            <Setter Property="Width" TargetName="ColumnDefinition0" Value="*"/>
+                            <Setter Property="Width" TargetName="ColumnDefinition1" Value="Auto"/>
+                            <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                            <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
+                            <Setter Property="Margin" TargetName="headerPanelHolder" Value="-1.25, 0, 0, 0"/>
+                            <Setter Property="Margin" TargetName="headerPanel" Value="1.25,2,2,2"/>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="TextElement.Foreground" TargetName="templateRoot" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabLayout" Value="Scroll"/>
+                                <Condition Property="ScrollBarVisibility" Value="Hidden"/>
+                                <Condition Property="TabStripPlacement" Value="Top"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabLayout" Value="Scroll"/>
+                                <Condition Property="ScrollBarVisibility" Value="Hidden"/>
+                                <Condition Property="TabStripPlacement" Value="Bottom"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabLayout" Value="Scroll"/>
+                                <Condition Property="ScrollBarVisibility" Value="Hidden"/>
+                                <Condition Property="TabStripPlacement" Value="Left"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabLayout" Value="Scroll"/>
+                                <Condition Property="ScrollBarVisibility" Value="Hidden"/>
+                                <Condition Property="TabStripPlacement" Value="Right"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabLayout" Value="Scroll"/>
+                                <Condition Property="ScrollBarVisibility" Value="Visible"/>
+                                <Condition Property="TabStripPlacement" Value="Top"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="HorizontalScrollBarVisibility" Value="Auto"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabLayout" Value="Scroll"/>
+                                <Condition Property="ScrollBarVisibility" Value="Visible"/>
+                                <Condition Property="TabStripPlacement" Value="Bottom"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="HorizontalScrollBarVisibility" Value="Auto"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabLayout" Value="Scroll"/>
+                                <Condition Property="ScrollBarVisibility" Value="Visible"/>
+                                <Condition Property="TabStripPlacement" Value="Left"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="VerticalScrollBarVisibility" Value="Auto"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabLayout" Value="Scroll"/>
+                                <Condition Property="ScrollBarVisibility" Value="Visible"/>
+                                <Condition Property="TabStripPlacement" Value="Right"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="VerticalScrollBarVisibility" Value="Auto"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabLayout" Value="Scroll"/>
+                                <Condition Property="ScrollBarVisibility" Value="VisibleOnHorizontal"/>
+                                <Condition Property="TabStripPlacement" Value="Top"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="HorizontalScrollBarVisibility" Value="Auto"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabLayout" Value="Scroll"/>
+                                <Condition Property="ScrollBarVisibility" Value="VisibleOnHorizontal"/>
+                                <Condition Property="TabStripPlacement" Value="Bottom"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="HorizontalScrollBarVisibility" Value="Auto"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabLayout" Value="Scroll"/>
+                                <Condition Property="ScrollBarVisibility" Value="VisibleOnHorizontal"/>
+                                <Condition Property="TabStripPlacement" Value="Left"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabLayout" Value="Scroll"/>
+                                <Condition Property="ScrollBarVisibility" Value="VisibleOnHorizontal"/>
+                                <Condition Property="TabStripPlacement" Value="Right"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ScrollBarPosition" Value="Outside"/>
+                                <Condition Property="TabStripPlacement" Value="Top"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="HorizontalScrollBarPosition" Value="Top"/>
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ScrollBarPosition" Value="Outside"/>
+                                <Condition Property="TabStripPlacement" Value="Left"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="headerPanelHolder" Property="VerticalScrollBarPosition" Value="Left"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
