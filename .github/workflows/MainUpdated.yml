@@ -64,15 +64,3 @@ jobs:
 
     - name: Release NuGet
       run: dotnet nuget push *.nupkg --source https://nuget.pkg.github.com/DanJBower/index.json --api-key ${{ github.token }}
-
-  DeleteOldCiBuilds:
-    name: Delete old CI releases
-    needs: ReleaseNuGetToPrivateFeed
-    runs-on: ubuntu-latest
-    steps:
-    - name: Delete Package Versions
-      uses: actions/delete-package-versions@v2.0.1
-      with:
-        package-name: DansWpfComponents
-        min-versions-to-keep: 5
-        token: ${{ github.token }}
