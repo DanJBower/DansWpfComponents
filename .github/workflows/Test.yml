@@ -35,3 +35,9 @@ jobs:
         pipelinePackageVersion: ${{ steps.make_version.outputs.pipelinePackageVersion }}
         pipelineAssemblyVersion: ${{ steps.make_version.outputs.pipelineAssemblyVersion }}
 
+    - name: Upload Executable
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        name: Demo
+        path: DansWpfComponents.Demo.exe
+        if-no-files-found: error
