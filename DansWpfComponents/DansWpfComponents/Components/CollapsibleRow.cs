@@ -9,21 +9,8 @@ namespace DansWpfComponents.Components;
 
 public class CollapsibleRow : RowDefinition
 {
-    public static readonly DependencyProperty CollapsedProperty;
-
-    public bool Collapsed
-    {
-        get => (bool)GetValue(CollapsedProperty);
-        set => SetValue(CollapsedProperty, value);
-    }
-
     static CollapsibleRow()
     {
-        CollapsedProperty = DependencyProperty.Register("Collapsed",
-            typeof(bool),
-            typeof(CollapsibleRow),
-            new PropertyMetadata(false, OnCollapsedChanged));
-
         HeightProperty.OverrideMetadata(typeof(CollapsibleRow),
             new FrameworkPropertyMetadata(new GridLength(1, GridUnitType.Star), null, CoerceHeight));
 
@@ -32,6 +19,19 @@ public class CollapsibleRow : RowDefinition
 
         MaxHeightProperty.OverrideMetadata(typeof(CollapsibleRow),
             new FrameworkPropertyMetadata(double.PositiveInfinity, null, CoerceHeight));
+    }
+
+    public static readonly DependencyProperty CollapsedProperty =
+        DependencyProperty.Register(
+            "Collapsed",
+            typeof(bool),
+            typeof(CollapsibleRow),
+            new PropertyMetadata(false, OnCollapsedChanged));
+
+    public bool Collapsed
+    {
+        get => (bool)GetValue(CollapsedProperty);
+        set => SetValue(CollapsedProperty, value);
     }
 
     private static object CoerceHeight(
@@ -58,8 +58,6 @@ public class CollapsibleRow : RowDefinition
         dependencyObject.CoerceValue(MinHeightProperty);
         dependencyObject.CoerceValue(HeightProperty);
         dependencyObject.CoerceValue(MaxHeightProperty);
-
-
     }
 
     // For when I forget in future
