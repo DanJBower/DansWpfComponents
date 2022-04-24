@@ -13,4 +13,5 @@ jobs:
 
   CallReleaseNuGetToPrivateFeed:
     name: Release NuGet To Private Feed
+    needs: CallBuildNuGet
     uses: ./.github/workflows/ReleaseNuGetToPrivateFeed.yml
