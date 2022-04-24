@@ -22,7 +22,7 @@ jobs:
     - name: Generate Version
       id: make_version
       shell: pwsh
-      run: .github\Utility\MakeVersionNumber.ps1 -append '-ci-${{ github.run_id }}' -buildId '${{ github.run_number }}' -latest '${{ steps.latest_release.outputs.tag_name }}'
+      run: .github\utility\MakeVersionNumber.ps1 -append '-ci-${{ github.run_id }}' -buildId '${{ github.run_number }}' -latest '${{ steps.latest_release.outputs.tag_name }}'
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
