@@ -8,10 +8,8 @@ on:
 
 jobs:
   CallBuildNuGet:
-    name: Call Build NuGet
     uses: ./.github/workflows/BuildNuGet.yml
 
   CallReleaseNuGetToPrivateFeed:
-    name: Release NuGet To Private Feed
     needs: CallBuildNuGet
     uses: ./.github/workflows/ReleaseNuGetToPrivateFeed.yml
