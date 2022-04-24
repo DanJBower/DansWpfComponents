@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  TestVersionGeneration:
-    name: Generating Version of NuGet
+  BuildNuGet:
+    name: Build NuGet
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
@@ -22,49 +22,30 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
 
-    - name: Generat
-      shell: pwsh
-      run: echo "-append '-ci-${{ github.run_id }}' -buildId '${{ github.run_number }}'"
-
-    - name: Generate
-      shell: pwsh
-      run: echo "RA ${{ github.run_attempt }}"
-
-    - name: Generate Version
-      shell: pwsh
-      run: echo "Version ${{ steps.latest_release.outputs.tag_name }}"
-
     - name: Generate Version
       id: make_version
       shell: pwsh
       run: .github\utility\MakeVersionNumber.ps1 -append '-ci-${{ github.run_id }}' -buildId '${{ github.run_number }}' -latest '${{ steps.latest_release.outputs.tag_name }}'
 
-    - name: Check Version
-      shell: pwsh
-      run: echo "Version ${{ steps.make_version.outputs.pipelinePackageVersion }} and ${{ steps.make_version.outputs.pipelineAssemblyVersion }}"
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
 
-#  BuildNuGet:
-#    name: Build NuGet
-#    runs-on: windows-latest
-#    steps:
-#    - uses: actions/checkout@v3
+    - name: Build
+      run: dotnet build --configuration Release DansWpfComponents\DansWpfComponents\DansWpfComponents.csproj
+      env:
+        pipelinePackageVersion: ${{ steps.make_version.outputs.pipelinePackageVersion }}
+        pipelineAssemblyVersion: ${{ steps.make_version.outputs.pipelineAssemblyVersion }}"
 
-#    - name: Setup .NET
-#      uses: actions/setup-dotnet@v2
-#      with:
-#        dotnet-version: 6.0.x
-
-#    - name: Build
-#      run: dotnet build --configuration Release DansWpfComponents\DansWpfComponents\DansWpfComponents.csproj
-
-#    - name: Upload NuGet artifact
-#      uses: actions/upload-artifact@v3.0.0
-#      with:
-#        name: NuGet Package Files
-#        path: |
-#          DansWpfComponents\DansWpfComponents\bin\Release\DansWpfComponents.*.nupkg
-#          DansWpfComponents\DansWpfComponents\bin\Release\DansWpfComponents.*.snupkg
-#        if-no-files-found: error
+    - name: Upload NuGet artifact
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        name: NuGet Package Files
+        path: |
+          DansWpfComponents\DansWpfComponents\bin\Release\DansWpfComponents.*.nupkg
+          DansWpfComponents\DansWpfComponents\bin\Release\DansWpfComponents.*.snupkg
+        if-no-files-found: error
 
 
 #  PublishNuGetToPrivateFeed:

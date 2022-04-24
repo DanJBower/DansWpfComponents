@@ -18,5 +18,5 @@ $pipelineAssemblyVersion = "$($major).$($minor).$($patch).$($build)"
 
 Write-Host "::set-output name=pipelinePackageVersion::$($pipelinePackageVersion)"
 Write-Host "::set-output name=pipelineAssemblyVersion::$($pipelineAssemblyVersion)"
-Write-Host "Package Version: $($pipelinePackageVersion)" -ForegroundColor Cyan
-Write-Host "Assembly Version: $($pipelineAssemblyVersion)" -ForegroundColor Cyan
+Write-Host "Package Version: $($pipelinePackageVersion)"
+Write-Host "Assembly Version: $($pipelineAssemblyVersion)"
