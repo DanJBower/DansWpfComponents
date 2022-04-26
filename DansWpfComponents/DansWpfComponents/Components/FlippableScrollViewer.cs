@@ -267,6 +267,7 @@ public class FlippableScrollViewer : ScrollViewer
             (MouseWheelScrollHorizontalWhenNoVertical && ScrollableHeight == 0))
         {
             HorizontalScroll(mouseWheelEventArgs.Delta < 0 ? ScrollDirection.Right : ScrollDirection.Left);
+            mouseWheelEventArgs.Handled = true;
         }
     }
 }
