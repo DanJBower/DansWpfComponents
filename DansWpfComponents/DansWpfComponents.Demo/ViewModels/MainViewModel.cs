@@ -24,23 +24,7 @@ public partial class MainViewModel
         Demos.Add(welcome);
         Demos.Add(new CollapsibleRowDemoViewModel());
         Demos.Add(ScrollableTabControlDemoViewModel);
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
-        Demos.Add(new WelcomeViewModel());
+        Demos.Add(new FlippableScrollViewerDemoViewModel());
 
         CurrentDemo = welcome;
     }

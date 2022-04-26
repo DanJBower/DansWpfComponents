@@ -31,8 +31,6 @@ public class FlippableScrollViewer : ScrollViewer
         }
     }
 
-    // TODO Add property that says vertical scroll scrolls horizontally if only horizontal can scroll
-
     private const double HorizontalScrollOffset = 48;
 
     public static readonly DependencyProperty HorizontalScrollBarPositionProperty =
