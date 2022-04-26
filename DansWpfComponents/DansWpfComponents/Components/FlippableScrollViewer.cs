@@ -47,16 +47,16 @@ public class FlippableScrollViewer : ScrollViewer
             typeof(FlippableScrollViewer),
             new PropertyMetadata(VerticalScrollBarPosition.Right));
 
-    public static readonly DependencyProperty ScrollHorizontalWhenNoVerticalProperty =
+    public static readonly DependencyProperty MouseWheelScrollHorizontalWhenNoVerticalProperty =
         DependencyProperty.Register(
-            "ScrollHorizontalWhenNoVertical",
+            "MouseWheelScrollHorizontalWhenNoVertical",
             typeof(bool),
             typeof(FlippableScrollViewer),
             new PropertyMetadata(true));
 
-    public static readonly DependencyProperty ShiftScrollsHorizontallyScrollsProperty =
+    public static readonly DependencyProperty ShiftMouseWheelScrollHorizontallyScrollsProperty =
         DependencyProperty.Register(
-            "ShiftScrollsHorizontallyScrolls",
+            "ShiftMouseWheelScrollHorizontallyScrolls",
             typeof(bool),
             typeof(FlippableScrollViewer),
             new PropertyMetadata(true));
@@ -87,16 +87,16 @@ public class FlippableScrollViewer : ScrollViewer
         set => SetValue(VerticalScrollBarPositionProperty, value);
     }
 
-    public bool ScrollHorizontalWhenNoVertical
+    public bool MouseWheelScrollHorizontalWhenNoVertical
     {
-        get => (bool)GetValue(ScrollHorizontalWhenNoVerticalProperty);
-        set => SetValue(ScrollHorizontalWhenNoVerticalProperty, value);
+        get => (bool)GetValue(MouseWheelScrollHorizontalWhenNoVerticalProperty);
+        set => SetValue(MouseWheelScrollHorizontalWhenNoVerticalProperty, value);
     }
 
-    public bool ShiftScrollsHorizontallyScrolls
+    public bool ShiftMouseWheelScrollHorizontallyScrolls
     {
-        get => (bool)GetValue(ShiftScrollsHorizontallyScrollsProperty);
-        set => SetValue(ShiftScrollsHorizontallyScrollsProperty, value);
+        get => (bool)GetValue(ShiftMouseWheelScrollHorizontallyScrollsProperty);
+        set => SetValue(ShiftMouseWheelScrollHorizontallyScrollsProperty, value);
     }
 
     public event MouseHorizontalWheelEventHandler PreviewMouseHorizontalWheel
@@ -263,8 +263,8 @@ public class FlippableScrollViewer : ScrollViewer
     {
         base.OnPreviewMouseWheel(mouseWheelEventArgs);
 
-        if ((ShiftScrollsHorizontallyScrolls && Keyboard.Modifiers == ModifierKeys.Shift) ||
-            (ScrollHorizontalWhenNoVertical && ScrollableHeight == 0))
+        if ((ShiftMouseWheelScrollHorizontallyScrolls && Keyboard.Modifiers == ModifierKeys.Shift) ||
+            (MouseWheelScrollHorizontalWhenNoVertical && ScrollableHeight == 0))
         {
             HorizontalScroll(mouseWheelEventArgs.Delta < 0 ? ScrollDirection.Right : ScrollDirection.Left);
         }

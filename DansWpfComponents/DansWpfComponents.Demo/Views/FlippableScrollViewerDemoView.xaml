@@ -51,7 +51,7 @@
 
         <TextBlock Grid.Column="0"
                    Grid.Row="2"
-                   Text="ScrollHorizontalWhenNoVertical:" />
+                   Text="MouseWheelScrollHorizontalWhenNoVertical:" />
 
         <CheckBox Grid.Column="1"
                   Grid.Row="2"
@@ -59,7 +59,7 @@
 
         <TextBlock Grid.Column="0"
                    Grid.Row="3"
-                   Text="ShiftScrollsHorizontallyScrolls:" />
+                   Text="ShiftMouseWheelScrollHorizontallyScrolls:" />
 
         <CheckBox Grid.Column="1"
                   Grid.Row="3"
@@ -72,8 +72,8 @@
             <TabItem Header="Big Vertical">
                 <components:FlippableScrollViewer HorizontalScrollBarPosition="{Binding HorizontalScrollBarPosition}"
                                                   VerticalScrollBarPosition="{Binding VerticalScrollBarPosition}"
-                                                  ScrollHorizontalWhenNoVertical="{Binding ScrollHorizontalWhenNoVertical}"
-                                                  ShiftScrollsHorizontallyScrolls="{Binding ShiftScrollsHorizontallyScrolls}">
+                                                  MouseWheelScrollHorizontalWhenNoVertical="{Binding ScrollHorizontalWhenNoVertical}"
+                                                  ShiftMouseWheelScrollHorizontallyScrolls="{Binding ShiftScrollsHorizontallyScrolls}">
                     <Border HorizontalAlignment="Center"
                             BorderBrush="Black"
                             BorderThickness="1">
@@ -98,8 +98,8 @@
             <TabItem Header="Big Horizontal">
                 <components:FlippableScrollViewer HorizontalScrollBarPosition="{Binding HorizontalScrollBarPosition}"
                                                   VerticalScrollBarPosition="{Binding VerticalScrollBarPosition}"
-                                                  ScrollHorizontalWhenNoVertical="{Binding ScrollHorizontalWhenNoVertical}"
-                                                  ShiftScrollsHorizontallyScrolls="{Binding ShiftScrollsHorizontallyScrolls}">
+                                                  MouseWheelScrollHorizontalWhenNoVertical="{Binding ScrollHorizontalWhenNoVertical}"
+                                                  ShiftMouseWheelScrollHorizontallyScrolls="{Binding ShiftScrollsHorizontallyScrolls}">
                     <Border VerticalAlignment="Center"
                             BorderBrush="Black"
                             BorderThickness="1">
@@ -124,8 +124,8 @@
             <TabItem Header="Big Vertical And Horizontal">
                 <components:FlippableScrollViewer HorizontalScrollBarPosition="{Binding HorizontalScrollBarPosition}"
                                                   VerticalScrollBarPosition="{Binding VerticalScrollBarPosition}"
-                                                  ScrollHorizontalWhenNoVertical="{Binding ScrollHorizontalWhenNoVertical}"
-                                                  ShiftScrollsHorizontallyScrolls="{Binding ShiftScrollsHorizontallyScrolls}">
+                                                  MouseWheelScrollHorizontalWhenNoVertical="{Binding ScrollHorizontalWhenNoVertical}"
+                                                  ShiftMouseWheelScrollHorizontallyScrolls="{Binding ShiftScrollsHorizontallyScrolls}">
                     <Border BorderBrush="Black"
                             BorderThickness="1">
                         <Canvas Width="2000"
