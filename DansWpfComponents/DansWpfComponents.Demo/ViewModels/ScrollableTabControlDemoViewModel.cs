@@ -20,5 +20,5 @@ public partial class ScrollableTabControlDemoViewModel : DemoViewModel
     private ScrollBarPosition _scrollBarPosition = ScrollBarPosition.Outside;
 
     [ObservableProperty]
-    private Dock _tabStripPlacement = Dock.Top;
+    private Dock _tabStripPlacement = Dock.Left;
 }

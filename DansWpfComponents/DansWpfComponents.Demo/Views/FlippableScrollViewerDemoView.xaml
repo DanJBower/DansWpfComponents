@@ -11,7 +11,7 @@
              d:DesignHeight="450"
              d:DesignWidth="800"
              d:DataContext="{d:DesignInstance Type=viewModels:FlippableScrollViewerDemoViewModel, IsDesignTimeCreatable=True}">
-    <Grid>
+    <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
@@ -37,7 +37,8 @@
                   ItemsSource="{utility:EnumToCollectionConverter {x:Type enums:HorizontalScrollBarPosition}}"
                   DisplayMemberPath="Description"
                   SelectedValuePath="Value"
-                  VerticalAlignment="Center" />
+                  VerticalAlignment="Center"
+                  Margin="0 5" />
 
         <TextBlock Grid.Column="0"
                    Grid.Row="1"
@@ -51,7 +52,8 @@
                   ItemsSource="{utility:EnumToCollectionConverter {x:Type enums:VerticalScrollBarPosition}}"
                   DisplayMemberPath="Description"
                   SelectedValuePath="Value"
-                  VerticalAlignment="Center" />
+                  VerticalAlignment="Center"
+                  Margin="0 5" />
 
         <TextBlock Grid.Column="0"
                    Grid.Row="2"
@@ -62,7 +64,8 @@
         <CheckBox Grid.Column="1"
                   Grid.Row="2"
                   IsChecked="{Binding ScrollHorizontalWhenNoVertical}"
-                  VerticalAlignment="Center" />
+                  VerticalAlignment="Center"
+                  Margin="0 5" />
 
         <TextBlock Grid.Column="0"
                    Grid.Row="3"
@@ -73,7 +76,8 @@
         <CheckBox Grid.Column="1"
                   Grid.Row="3"
                   IsChecked="{Binding ShiftScrollsHorizontallyScrolls}"
-                  VerticalAlignment="Center" />
+                  VerticalAlignment="Center"
+                  Margin="0 5" />
 
         <components:ScrollableTabControl Grid.Column="0"
                                          Grid.Row="4"
