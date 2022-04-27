@@ -15,17 +15,19 @@ public partial class MainViewModel
     [ObservableProperty]
     private ScrollableTabControlDemoViewModel _scrollableTabControlDemoViewModel;
 
-    public MainViewModel()
+    public MainViewModel(
+        WelcomeViewModel welcomeViewModel,
+        CollapsibleRowDemoViewModel collapsibleRowDemoViewModel,
+        ScrollableTabControlDemoViewModel scrollableTabControlDemoViewModel,
+        FlippableScrollViewerDemoViewModel flippableScrollViewerDemoViewModel)
     {
-        WelcomeViewModel welcome = new();
+        ScrollableTabControlDemoViewModel = scrollableTabControlDemoViewModel;
 
-        ScrollableTabControlDemoViewModel = new();
-
-        Demos.Add(welcome);
-        Demos.Add(new CollapsibleRowDemoViewModel());
+        Demos.Add(welcomeViewModel);
+        Demos.Add(collapsibleRowDemoViewModel);
         Demos.Add(ScrollableTabControlDemoViewModel);
-        Demos.Add(new FlippableScrollViewerDemoViewModel());
+        Demos.Add(flippableScrollViewerDemoViewModel);
 
-        CurrentDemo = welcome;
+        CurrentDemo = welcomeViewModel;
     }
 }
