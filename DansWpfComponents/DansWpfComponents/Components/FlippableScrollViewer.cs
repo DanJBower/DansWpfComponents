@@ -259,15 +259,16 @@ public class FlippableScrollViewer : ScrollViewer
         }
     }
 
-    protected override void OnPreviewMouseWheel(MouseWheelEventArgs mouseWheelEventArgs)
+    protected override void OnMouseWheel(MouseWheelEventArgs mouseWheelEventArgs)
     {
-        base.OnPreviewMouseWheel(mouseWheelEventArgs);
-
-        if ((ShiftMouseWheelScrollHorizontallyScrolls && Keyboard.Modifiers == ModifierKeys.Shift) ||
-            (MouseWheelScrollHorizontalWhenNoVertical && ScrollableHeight == 0))
+        if (!mouseWheelEventArgs.Handled &&
+            ((ShiftMouseWheelScrollHorizontallyScrolls && Keyboard.Modifiers == ModifierKeys.Shift) ||
+            (MouseWheelScrollHorizontalWhenNoVertical && ScrollableHeight == 0)))
         {
             HorizontalScroll(mouseWheelEventArgs.Delta < 0 ? ScrollDirection.Right : ScrollDirection.Left);
             mouseWheelEventArgs.Handled = true;
         }
+
+        base.OnMouseWheel(mouseWheelEventArgs);
     }
 }

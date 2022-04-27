@@ -22,51 +22,61 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="0"
                    Grid.Row="0"
-                   Text="HorizontalScrollBarPosition:" />
+                   Text="HorizontalScrollBarPosition: "
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center" />
 
         <ComboBox Grid.Column="1"
                   Grid.Row="0"
                   SelectedValue="{Binding HorizontalScrollBarPosition}"
                   ItemsSource="{utility:EnumToCollectionConverter {x:Type enums:HorizontalScrollBarPosition}}"
                   DisplayMemberPath="Description"
-                  SelectedValuePath="Value" />
+                  SelectedValuePath="Value"
+                  VerticalAlignment="Center" />
 
         <TextBlock Grid.Column="0"
                    Grid.Row="1"
-                   Text="VerticalScrollBarPosition:" />
+                   Text="VerticalScrollBarPosition: "
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center" />
 
         <ComboBox Grid.Column="1"
                   Grid.Row="1"
                   SelectedValue="{Binding VerticalScrollBarPosition}"
                   ItemsSource="{utility:EnumToCollectionConverter {x:Type enums:VerticalScrollBarPosition}}"
                   DisplayMemberPath="Description"
-                  SelectedValuePath="Value" />
+                  SelectedValuePath="Value"
+                  VerticalAlignment="Center" />
 
         <TextBlock Grid.Column="0"
                    Grid.Row="2"
-                   Text="MouseWheelScrollHorizontalWhenNoVertical:" />
+                   Text="MouseWheelScrollHorizontalWhenNoVertical: "
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center" />
 
         <CheckBox Grid.Column="1"
                   Grid.Row="2"
-                  IsChecked="{Binding ScrollHorizontalWhenNoVertical}" />
+                  IsChecked="{Binding ScrollHorizontalWhenNoVertical}"
+                  VerticalAlignment="Center" />
 
         <TextBlock Grid.Column="0"
                    Grid.Row="3"
-                   Text="ShiftMouseWheelScrollHorizontallyScrolls:" />
+                   Text="ShiftMouseWheelScrollHorizontallyScrolls: "
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center" />
 
         <CheckBox Grid.Column="1"
                   Grid.Row="3"
-                  IsChecked="{Binding ShiftScrollsHorizontallyScrolls}" />
+                  IsChecked="{Binding ShiftScrollsHorizontallyScrolls}"
+                  VerticalAlignment="Center" />
 
         <components:ScrollableTabControl Grid.Column="0"
-                                         Grid.Row="6"
+                                         Grid.Row="4"
                                          Grid.ColumnSpan="2"
                                          Margin="10">
             <TabItem Header="Big Vertical">
