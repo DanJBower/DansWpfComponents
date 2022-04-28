@@ -35,7 +35,8 @@
         <CheckBox Grid.Row="0"
                   Grid.Column="1"
                   IsChecked="{Binding OverlayEnabled}"
-                  HorizontalAlignment="Left"/>
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center" />
 
         <Label Content="Blur Overlay Color: "
                Grid.Row="1"
