@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace DansWpfComponents.Utility;
 
-public class EnumToStringConverter : BaseValueConverter
+public class EnumToStringConverter : MarkupValueConverter
 {
     public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {

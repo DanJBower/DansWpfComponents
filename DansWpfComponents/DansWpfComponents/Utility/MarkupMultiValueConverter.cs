@@ -5,7 +5,7 @@ using System.Windows.Markup;
 
 namespace DansWpfComponents.Utility;
 
-public abstract class BaseMultiValueConverter : MarkupExtension, IMultiValueConverter
+public abstract class MarkupMultiValueConverter : MarkupExtension, IMultiValueConverter
 {
     public override object ProvideValue(IServiceProvider serviceProvider)
     {

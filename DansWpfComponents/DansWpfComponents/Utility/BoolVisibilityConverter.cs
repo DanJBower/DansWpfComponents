@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace DansWpfComponents.Utility;
 
-public class BoolVisibilityConverter : BaseValueConverter
+public class BoolVisibilityConverter : MarkupValueConverter
 {
     public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {

@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace DansWpfComponents.Utility;
 
-public class BoolInverterConverter : BaseValueConverter
+public class BoolInverterConverter : MarkupValueConverter
 {
     public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {

@@ -1,0 +1,7 @@
+[INotifyPropertyChangeable]
+[ObservableProperty]
+[RelayCommand]
+[MarkupValueConverter] 		-- This is pretty pointless as there is no IMarkupExtension in WPF :/ Leave here so I don't forget
+[MarkupMultiValueConverter]	-- This is pretty pointless as there is no IMarkupExtension in WPF :/ Leave here so I don't forget
+[DependencyProperty]
+[DependencyEvent]
