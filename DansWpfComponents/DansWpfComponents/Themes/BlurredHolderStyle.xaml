@@ -21,6 +21,8 @@
                                     <BlurEffect Radius="{TemplateBinding BlurOverlayRadius}"
                                                 KernelType="{TemplateBinding BlurOverlayKernelType}"/>
                                 </Border.Effect>
+
+                                <!-- Note this initially creates a binding error, there is nothing you can do about it -->
                                 <Border.Background>
                                     <VisualBrush Visual="{Binding ElementName=src}"
                                                  Stretch="None" />
