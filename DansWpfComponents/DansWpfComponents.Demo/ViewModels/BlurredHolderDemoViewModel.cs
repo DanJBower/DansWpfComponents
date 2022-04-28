@@ -10,17 +10,17 @@ public partial class BlurredHolderDemoViewModel : DemoViewModel
     public BlurredHolderDemoViewModel() : base($"{nameof(BlurredHolder)} Demo") { }
 
     [ObservableProperty]
-    private double _overlayOpacity;
+    private double _overlayOpacity = 1;
 
     [ObservableProperty]
-    private double _overlayStrength;
+    private double _overlayRadius = 10;
 
     [ObservableProperty]
-    private SolidColorBrush _overlayColor;
+    private SolidColorBrush _overlayColor = Brushes.Transparent;
 
     [ObservableProperty]
-    private bool _overlayEnabled;
+    private bool _overlayEnabled = true;
 
     [ObservableProperty]
-    private KernelType _overlayKernelType;
+    private KernelType _overlayKernelType = KernelType.Gaussian;
 }

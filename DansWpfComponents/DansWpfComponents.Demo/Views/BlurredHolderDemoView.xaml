@@ -59,6 +59,8 @@
                 Grid.Column="1"
                 Value="{Binding OverlayOpacity}"
                 TickFrequency="0.01"
+                SmallChange="0.01"
+                LargeChange="0.01"
                 Maximum="1"
                 IsSnapToTickEnabled="True"
                 VerticalAlignment="Center"/>
@@ -75,13 +77,15 @@
 
         <Slider Grid.Row="3"
                 Grid.Column="1"
-                Value="{Binding OverlayStrength}"
+                Value="{Binding OverlayRadius}"
                 TickFrequency="0.01"
+                SmallChange="1"
+                LargeChange="1"
                 Maximum="100"
                 IsSnapToTickEnabled="True"
                 VerticalAlignment="Center"/>
 
-        <Label Content="{Binding OverlayStrength, Mode=OneWay}"
+        <Label Content="{Binding OverlayRadius, Mode=OneWay}"
                Grid.Row="3"
                Grid.Column="2"
                ContentStringFormat="{}{0:000.00}"/>
@@ -93,10 +97,10 @@
 
         <ComboBox Grid.Row="4"
                   Grid.Column="1"
-                  ItemsSource="{utility:EnumToCollectionConverter {x:Type KernelType}}"
                   SelectedItem="{Binding OverlayKernelType}"
-                  DisplayMemberPath="Name"
-                  SelectedValuePath="Description" />
+                  ItemsSource="{utility:EnumToCollectionConverter {x:Type KernelType}}"
+                  DisplayMemberPath="Description"
+                  SelectedValuePath="Value" />
 
         <components:ScrollableTabControl
             Grid.Row="5"
@@ -104,7 +108,7 @@
             Grid.ColumnSpan="4"
             Margin="10">
             <TabItem Header="Canvas">
-                <components:BlurredHolder BlurOverlayRadius="{Binding OverlayStrength}"
+                <components:BlurredHolder BlurOverlayRadius="{Binding OverlayRadius}"
                                           Background="Transparent"
                                           BlurOverlayEnabled="{Binding OverlayEnabled}"
                                           BlurOverlayOpacity="{Binding OverlayOpacity}"

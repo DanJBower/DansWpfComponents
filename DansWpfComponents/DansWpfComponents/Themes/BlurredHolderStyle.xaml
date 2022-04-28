@@ -15,11 +15,11 @@
                         <Border Background="{TemplateBinding BlurOverlayColor}"
                                 Opacity="{TemplateBinding BlurOverlayOpacity}"
                                 IsHitTestVisible="False"
-                                Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BlurOverlayEnabled, Converter={utility:BoolVisibilityConverter}}">
+                                Visibility="{TemplateBinding BlurOverlayEnabled, Converter={utility:BoolVisibilityConverter}}">
                             <Border>
                                 <Border.Effect>
-                                    <BlurEffect Radius="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BlurOverlayRadius}"
-                                                KernelType="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BlurOverlayKernelType}"/>
+                                    <BlurEffect Radius="{TemplateBinding BlurOverlayRadius}"
+                                                KernelType="{TemplateBinding BlurOverlayKernelType}"/>
                                 </Border.Effect>
                                 <Border.Background>
                                     <VisualBrush Visual="{Binding ElementName=src}"
