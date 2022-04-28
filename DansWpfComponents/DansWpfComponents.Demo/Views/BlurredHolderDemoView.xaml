@@ -178,6 +178,44 @@
                     </components:BlurredHolder>
                 </Grid>
             </TabItem>
+
+            <TabItem Header="Custom Image">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="0"
+                               Text="Image Path: "
+                               VerticalAlignment="Center"
+                               Margin="5 0 2 0" />
+
+                    <TextBox x:Name="CustomImagePath"
+                             Grid.Column="1"
+                             Grid.Row="0"
+                             Margin="10" />
+
+                    <components:BlurredHolder Grid.Column="0"
+                                              Grid.Row="1"
+                                              Grid.ColumnSpan="2"
+                                              BlurOverlayRadius="{Binding OverlayRadius}"
+                                              Background="Transparent"
+                                              BlurOverlayEnabled="{Binding OverlayEnabled}"
+                                              BlurOverlayOpacity="{Binding OverlayOpacity}"
+                                              BlurOverlayKernelType="{Binding OverlayKernelType}"
+                                              BlurOverlayColor="{Binding OverlayColor}">
+                        <Image Source="{Binding ElementName=CustomImagePath, Path=Text, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                               Stretch="Uniform"/>
+                    </components:BlurredHolder>
+                </Grid>
+            </TabItem>
         </components:ScrollableTabControl>
     </Grid>
 </UserControl>
