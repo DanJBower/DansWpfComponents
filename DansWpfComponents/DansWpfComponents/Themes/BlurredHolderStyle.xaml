@@ -18,11 +18,16 @@
                                 Visibility="{TemplateBinding BlurOverlayEnabled, Converter={utility:BoolVisibilityConverter}}">
                             <Border>
                                 <Border.Effect>
-                                    <BlurEffect Radius="{TemplateBinding BlurOverlayRadius}"
-                                                KernelType="{TemplateBinding BlurOverlayKernelType}"/>
+                                    <BlurEffect Radius="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BlurOverlayRadius}"
+                                                KernelType="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BlurOverlayKernelType}"/>
                                 </Border.Effect>
 
                                 <!-- Note this initially creates a binding error, there is nothing you can do about it -->
+                                <!-- Temporarily removed until color blending can be worked out -->
+                                <!-- https://stackoverflow.com/q/1656764/4601149 -->
+                                <!-- https://www.cplotts.com/category/blend-modes/ -->
+                                <!-- https://rakeshravuri.blogspot.com/2008/08/blending-modes-in-wpf-using.html -->
+                                <!-- http://web.archive.org/web/20091217001047/http://blogs.msdn.com/greg_schechter/archive/2008/09/16/introducing-multi-input-shader-effects.aspx -->
                                 <Border.Background>
                                     <VisualBrush Visual="{Binding ElementName=src}"
                                                  Stretch="None" />

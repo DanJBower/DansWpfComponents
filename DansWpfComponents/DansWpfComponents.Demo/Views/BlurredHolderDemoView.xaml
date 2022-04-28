@@ -40,6 +40,7 @@
                   HorizontalAlignment="Left"
                   VerticalAlignment="Center" />
 
+        <!-- TODO Temporarily removed until color blending can be added as this doesn't work
         <Label Content="Blur Overlay Color: "
                Grid.Row="1"
                Grid.Column="0"
@@ -50,7 +51,7 @@
                   SelectedValue="{Binding OverlayColor}"
                   ItemsSource="{utility:PropertiesToCollectionConverter {x:Type Brushes}, {x:Type SolidColorBrush}}"
                   DisplayMemberPath="Name"
-                  SelectedValuePath="Value" />
+                  SelectedValuePath="Value" />-->
 
         <Label Content="Blur Overlay Opacity: "
                Grid.Row="2"
