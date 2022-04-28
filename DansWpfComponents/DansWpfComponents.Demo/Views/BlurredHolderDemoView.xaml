@@ -45,8 +45,8 @@
 
         <ComboBox Grid.Row="1"
                   Grid.Column="1"
+                  SelectedValue="{Binding OverlayColor}"
                   ItemsSource="{utility:PropertiesToCollectionConverter {x:Type Brushes}, {x:Type SolidColorBrush}}"
-                  SelectedItem="{Binding OverlayColor}"
                   DisplayMemberPath="Name"
                   SelectedValuePath="Value" />
 
@@ -97,7 +97,7 @@
 
         <ComboBox Grid.Row="4"
                   Grid.Column="1"
-                  SelectedItem="{Binding OverlayKernelType}"
+                  SelectedValue="{Binding OverlayKernelType}"
                   ItemsSource="{utility:EnumToCollectionConverter {x:Type KernelType}}"
                   DisplayMemberPath="Description"
                   SelectedValuePath="Value" />
