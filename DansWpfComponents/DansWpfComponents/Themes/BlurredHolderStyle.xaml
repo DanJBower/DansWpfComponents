@@ -18,7 +18,7 @@
                                 Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BlurOverlayEnabled, Converter={utility:BoolVisibilityConverter}}">
                             <Border>
                                 <Border.Effect>
-                                    <BlurEffect Radius="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BlurOverlayStrength}"
+                                    <BlurEffect Radius="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BlurOverlayRadius}"
                                                 KernelType="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BlurOverlayKernelType}"/>
                                 </Border.Effect>
                                 <Border.Background>

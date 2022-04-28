@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Globalization;
-using System.Windows.Data;
 
 namespace DansWpfComponents.Utility;
 
-public class EnumToStringConverter : BaseConverter, IValueConverter
+public class EnumToStringConverter : BaseValueConverter
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is Enum enumValue)
         {
@@ -14,10 +13,5 @@ public class EnumToStringConverter : BaseConverter, IValueConverter
         }
 
         return "";
-    }
-
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        throw new NotSupportedException();
     }
 }

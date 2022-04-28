@@ -12,6 +12,8 @@ public class BlurredHolder : UserControl
         DefaultStyleKeyProperty.OverrideMetadata(typeof(BlurredHolder), new FrameworkPropertyMetadata(typeof(BlurredHolder)));
     }
 
+    // TODO Fix binding errors in style template
+
     public static readonly DependencyProperty BlurOverlayEnabledProperty =
         DependencyProperty.Register(
             "BlurOverlayEnabled",
@@ -33,9 +35,9 @@ public class BlurredHolder : UserControl
             typeof(BlurredHolder),
             new PropertyMetadata(1.0));
 
-    public static readonly DependencyProperty BlurOverlayStrengthProperty =
+    public static readonly DependencyProperty BlurOverlayRadiusProperty =
         DependencyProperty.Register(
-            "BlurOverlayStrength",
+            "BlurOverlayRadius",
             typeof(double),
             typeof(BlurredHolder),
             new PropertyMetadata(0.0));
@@ -65,10 +67,10 @@ public class BlurredHolder : UserControl
         set => SetValue(BlurOverlayOpacityProperty, value);
     }
 
-    public double BlurOverlayStrength
+    public double BlurOverlayRadius
     {
-        get => (double)GetValue(BlurOverlayStrengthProperty);
-        set => SetValue(BlurOverlayStrengthProperty, value);
+        get => (double)GetValue(BlurOverlayRadiusProperty);
+        set => SetValue(BlurOverlayRadiusProperty, value);
     }
 
     public KernelType BlurOverlayKernelType

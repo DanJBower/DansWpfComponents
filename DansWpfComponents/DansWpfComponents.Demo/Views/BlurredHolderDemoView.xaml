@@ -6,7 +6,6 @@
              xmlns:viewModels="clr-namespace:DansWpfComponents.Demo.ViewModels"
              xmlns:components="clr-namespace:DansWpfComponents.Components;assembly=DansWpfComponents"
              xmlns:utility="clr-namespace:DansWpfComponents.Utility;assembly=DansWpfComponents"
-             xmlns:enums="clr-namespace:DansWpfComponents.Enums;assembly=DansWpfComponents"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800"
@@ -45,7 +44,7 @@
 
         <ComboBox Grid.Row="1"
                   Grid.Column="1"
-                  ItemsSource="{utility:PropertiesToCollectionConverter{} {x:Type KernelType}}"
+                  ItemsSource="{utility:PropertiesToCollectionConverter {x:Type Brushes}, {x:Type SolidColorBrush}}"
                   SelectedItem="{Binding OverlayColor}"
                   DisplayMemberPath="Name"
                   SelectedValuePath="Value" />
@@ -68,7 +67,7 @@
                Grid.Column="2"
                ContentStringFormat="{}{0:000.00}"/>
 
-        <Label Content="Blur Overlay Strength: "
+        <Label Content="Blur Overlay Radius: "
                Grid.Row="3"
                Grid.Column="0"
                HorizontalAlignment="Right"/>
@@ -98,18 +97,38 @@
                   DisplayMemberPath="Name"
                   SelectedValuePath="Description" />
 
-        <components:BlurredHolder BlurOverlayStrength="{Binding OverlayStrength}"
-                                  Background="Transparent"
-                                  BlurOverlayEnabled="{Binding OverlayEnabled}"
-                                  BlurOverlayOpacity="{Binding OverlayOpacity}"
-                                  BlurOverlayKernelType="{Binding OverlayKernelType}"
-                                  BlurOverlayColor="{Binding OverlayColor}"
-                                  Grid.Row="5"
-                                  Grid.Column="0"
-                                  Grid.ColumnSpan="4">
-            <Canvas>
+        <components:ScrollableTabControl
+            Grid.Row="5"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Margin="10">
+            <TabItem Header="Canvas">
+                <components:BlurredHolder BlurOverlayRadius="{Binding OverlayStrength}"
+                                          Background="Transparent"
+                                          BlurOverlayEnabled="{Binding OverlayEnabled}"
+                                          BlurOverlayOpacity="{Binding OverlayOpacity}"
+                                          BlurOverlayKernelType="{Binding OverlayKernelType}"
+                                          BlurOverlayColor="{Binding OverlayColor}">
+                    <Canvas>
+                        <Rectangle Width="200"
+                                   Height="100"
+                                   Fill="Red"
+                                   Canvas.Left="100"
+                                   Canvas.Top="50"/>
 
-            </Canvas>
-        </components:BlurredHolder>
+                        <Ellipse Width="50"
+                                 Height="50"
+                                 Fill="Green"
+                                 Canvas.Left="275"
+                                 Canvas.Top="125" />
+                    </Canvas>
+                </components:BlurredHolder>
+            </TabItem>
+
+            <TabItem Header="Image">
+                <!-- TODO Add way to select an image and put in blur component -->
+                <TextBlock Text="Select an image" />
+            </TabItem>
+        </components:ScrollableTabControl>
     </Grid>
 </UserControl>

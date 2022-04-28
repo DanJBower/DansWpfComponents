@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Globalization;
-using System.Windows.Data;
 
 namespace DansWpfComponents.Utility;
 
-public class BoolInverterConverter : BaseConverter, IValueConverter
+public class BoolInverterConverter : BaseValueConverter
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is bool boolToConvert)
         {
@@ -15,7 +14,7 @@ public class BoolInverterConverter : BaseConverter, IValueConverter
         return false;
     }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is bool boolToConvert)
         {

@@ -7,26 +7,29 @@ using System.Windows.Media;
 
 namespace DansWpfComponents.Utility;
 
-public class PropertiesToCollectionConverter<T> : MarkupExtension
+public class PropertiesToCollectionConverter : MarkupExtension
 {
     private readonly Type _type;
+    private readonly Type _propertyType;
 
-    public PropertiesToCollectionConverter(Type type)
+    public PropertiesToCollectionConverter(Type type, Type propertyType)
     {
         _type = type;
+        _propertyType = propertyType;
     }
 
     public override object ProvideValue(IServiceProvider _)
     {
-        var result = new List<Tuple<T, string>>().Select(t => new { Value = t.Item1, Name = t.Item2 }).ToList();
+        var result = new List<Tuple<dynamic, string>>().Select(t => new { Value = t.Item1, Name = t.Item2 }).ToList();
 
         foreach (PropertyInfo propertyInfo in typeof(Brushes).GetProperties())
         {
-            if (propertyInfo.GetValue(_type, null) is T property)
+            object property = propertyInfo.GetValue(_type, null);
+            if (property?.GetType() == _propertyType)
             {
                 result.Add(new
                 {
-                    Value = property,
+                    Value = Convert.ChangeType(property, _propertyType),
                     Name = propertyInfo.Name,
                 });
             }
