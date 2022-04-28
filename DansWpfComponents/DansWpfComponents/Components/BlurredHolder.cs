@@ -31,14 +31,14 @@ public class BlurredHolder : UserControl
             "BlurOverlayOpacity",
             typeof(double),
             typeof(BlurredHolder),
-            new PropertyMetadata(1));
+            new PropertyMetadata(1.0));
 
     public static readonly DependencyProperty BlurOverlayStrengthProperty =
         DependencyProperty.Register(
             "BlurOverlayStrength",
             typeof(double),
             typeof(BlurredHolder),
-            new PropertyMetadata(0));
+            new PropertyMetadata(0.0));
 
     public static readonly DependencyProperty BlurOverlayKernelTypeProperty =
         DependencyProperty.Register(

@@ -35,6 +35,10 @@
                 <DataTemplate DataType="{x:Type viewModels:FlippableScrollViewerDemoViewModel}">
                     <views:FlippableScrollViewerDemoView />
                 </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:BlurredHolderDemoViewModel}">
+                    <views:BlurredHolderDemoView />
+                </DataTemplate>
             </TabControl.Resources>
 
             <TabControl.ItemTemplate>

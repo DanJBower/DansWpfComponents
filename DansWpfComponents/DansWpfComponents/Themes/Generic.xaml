@@ -2,5 +2,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/DansWpfComponents;component/Themes/FlippableScrollViewerStyle.xaml" />
         <ResourceDictionary Source="/DansWpfComponents;component/Themes/ScrollableTabControlStyle.xaml" />
+        <ResourceDictionary Source="/DansWpfComponents;component/Themes/BlurredHolderStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

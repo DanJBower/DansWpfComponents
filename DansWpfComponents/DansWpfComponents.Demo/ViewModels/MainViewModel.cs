@@ -19,7 +19,8 @@ public partial class MainViewModel
         WelcomeViewModel welcomeViewModel,
         CollapsibleRowDemoViewModel collapsibleRowDemoViewModel,
         ScrollableTabControlDemoViewModel scrollableTabControlDemoViewModel,
-        FlippableScrollViewerDemoViewModel flippableScrollViewerDemoViewModel)
+        FlippableScrollViewerDemoViewModel flippableScrollViewerDemoViewModel,
+        BlurredHolderDemoViewModel blurredHolderDemoViewModel)
     {
         ScrollableTabControlDemoViewModel = scrollableTabControlDemoViewModel;
 
@@ -27,6 +28,7 @@ public partial class MainViewModel
         Demos.Add(collapsibleRowDemoViewModel);
         Demos.Add(ScrollableTabControlDemoViewModel);
         Demos.Add(flippableScrollViewerDemoViewModel);
+        Demos.Add(blurredHolderDemoViewModel);
 
         CurrentDemo = welcomeViewModel;
     }

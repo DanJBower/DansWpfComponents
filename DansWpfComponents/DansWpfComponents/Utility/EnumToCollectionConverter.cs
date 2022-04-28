@@ -13,7 +13,7 @@ public class EnumToCollectionConverter : MarkupExtension
         _type = type;
     }
 
-    public override object ProvideValue(IServiceProvider serviceProvider)
+    public override object ProvideValue(IServiceProvider _)
     {
         return Enum.GetValues(_type)
             .Cast<Enum>()
